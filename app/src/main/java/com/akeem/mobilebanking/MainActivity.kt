@@ -52,15 +52,15 @@ class MainActivity : AppCompatActivity() {
         binding.toolbar.inflateMenu(R.menu.main_menu)
         binding.toolbar.setOnMenuItemClickListener { item ->
             when (item.itemId) {
-                R.id.action_sim_transfer -> showTransferSimulationDialog()
-                R.id.action_sim_history -> showHistorySimulationDialog()
+                R.id.action_sim_transfer -> showDemoTransferDialog()
+                R.id.action_sim_history -> showDemoHistoryDialog()
                 else -> return@setOnMenuItemClickListener false
             }
             true
         }
     }
 
-    private fun showTransferSimulationDialog() {
+    private fun showDemoTransferDialog() {
         val options = DemoTransferResult.entries
         val labels = arrayOf(
             getString(R.string.sim_transfer_success),
@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
             .show()
     }
 
-    private fun showHistorySimulationDialog() {
+    private fun showDemoHistoryDialog() {
         val options = DemoHistoryResult.entries
         val labels = arrayOf(
             getString(R.string.sim_history_normal),
