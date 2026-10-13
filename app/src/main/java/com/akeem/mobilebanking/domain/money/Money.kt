@@ -50,7 +50,7 @@ object MoneyParser {
         val whole = wholePart.toLongOrNull() ?: return AmountParseResult.TooLarge
         val kobo = try {
             Math.addExact(Math.multiplyExact(whole, 100L), fractionPart.toLong())
-        } catch (_: ArithmeticException) {
+        } catch (e: ArithmeticException) {
             return AmountParseResult.TooLarge
         }
         return AmountParseResult.Valid(kobo)
