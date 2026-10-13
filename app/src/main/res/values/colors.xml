@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brand_primary">#4F2D7F</color>
+    <color name="brand_on_primary">#FFFFFF</color>
+    <color name="brand_primary_container">#EBDDFF</color>
+    <color name="brand_on_primary_container">#25005A</color>
+    <color name="brand_secondary">#8A6D1D</color>
+
+    <color name="surface">#FFFBFF</color>
+    <color name="surface_variant">#F3EDF7</color>
+    <color name="on_surface">#1D1B20</color>
+    <color name="on_surface_variant">#49454F</color>
+    <color name="outline">#79747E</color>
+
+    <color name="success">#1B7F3B</color>
+    <color name="success_container">#DDF3E4</color>
+    <color name="pending">#8A5A00</color>
+    <color name="pending_container">#FFEFC7</color>
+    <color name="failed">#B3261E</color>
+    <color name="failed_container">#F9DEDC</color>
+
+    <color name="credit">#1B7F3B</color>
+    <color name="debit">#B3261E</color>
+    <color name="white">#FFFFFF</color>
+</resources>

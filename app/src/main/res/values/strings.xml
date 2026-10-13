@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mobile Banking</string>
+    <string name="currency_symbol">₦</string>
+
+    <!-- Navigation / titles -->
+    <string name="title_transfer">Transfer</string>
+    <string name="title_confirm_transfer">Confirm transfer</string>
+    <string name="title_transfer_result">Transfer status</string>
+    <string name="title_transactions">Transactions</string>
+    <string name="title_transaction_details">Transaction details</string>
+    <string name="menu_transfer">Transfer</string>
+    <string name="menu_history">History</string>
+    <string name="menu_sim_transfer">Simulate transfer outcome</string>
+    <string name="menu_sim_history">Simulate history data</string>
+    <string name="sim_transfer_title">Next transfer outcome</string>
+    <string name="sim_history_title">Next history load (pull to refresh)</string>
+    <string name="sim_transfer_success">Successful</string>
+    <string name="sim_transfer_failed">Failed</string>
+    <string name="sim_transfer_pending">Pending</string>
+    <string name="sim_transfer_timeout">Timeout / unknown</string>
+    <string name="sim_history_normal">Normal data</string>
+    <string name="sim_history_empty">Empty history</string>
+    <string name="sim_history_error">Service error</string>
+    <string name="action_close">Close</string>
+
+    <!-- Transfer form -->
+    <string name="hint_debit_account">Debit account</string>
+    <string name="hint_destination_bank">Destination bank</string>
+    <string name="hint_account_number">Account number</string>
+    <string name="hint_amount">Transfer amount</string>
+    <string name="hint_narration">Narration (optional)</string>
+    <string name="available_balance">Available balance: %1$s</string>
+    <string name="available_balance_none">Select an account to see its balance</string>
+    <string name="account_display_name">%1$s •••• %2$s</string>
+    <string name="label_beneficiary_name">Beneficiary name</string>
+    <string name="beneficiary_verifying">Verifying account…</string>
+    <string name="cd_beneficiary_verifying">Verifying beneficiary account</string>
+    <string name="cd_beneficiary_verified">Account verified</string>
+    <string name="beneficiary_not_found">We couldn\'t find an account with these details. Check the bank and account number.</string>
+    <string name="beneficiary_service_error">We couldn\'t verify this account right now. Please try again.</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_continue">Continue</string>
+    <string name="summary_transfer_amount">Transfer amount</string>
+    <string name="summary_fee">Transfer fee</string>
+    <string name="summary_total_debit">Total debit</string>
+    <string name="banner_title">Previous transfer not confirmed</string>
+    <string name="banner_message">Reference %1$s. Check its status before starting another transfer, so you don\'t pay twice.</string>
+    <string name="action_check_status">Check status</string>
+    <string name="snackbar_unresolved_transfer">Check the status of your previous transfer before making a new one.</string>
+
+    <!-- Validation -->
+    <string name="error_account_required">Select the account to debit</string>
+    <string name="error_bank_required">Select the destination bank</string>
+    <string name="error_account_number_required">Enter the account number</string>
+    <string name="error_account_number_invalid">Account number must be exactly 10 digits</string>
+    <string name="error_beneficiary_resolving">Wait for the account to be verified</string>
+    <string name="error_beneficiary_not_resolved">Beneficiary must be verified for this bank and account number</string>
+    <string name="error_amount_required">Enter an amount</string>
+    <string name="error_amount_invalid">Enter a valid amount, e.g. 25000 or 25000.50</string>
+    <string name="error_amount_not_positive">Amount must be greater than ₦0.00</string>
+    <string name="error_amount_too_large">That amount is too large</string>
+    <string name="error_insufficient_funds">Insufficient balance. Amount plus the %1$s fee exceeds your available balance.</string>
+
+    <!-- Confirmation -->
+    <string name="confirm_heading">Review your transfer</string>
+    <string name="confirm_subheading">Check every detail. Transfers cannot be reversed once processed.</string>
+    <string name="row_debit_account">Debit account</string>
+    <string name="row_destination_bank">Destination bank</string>
+    <string name="row_beneficiary_name">Beneficiary name</string>
+    <string name="row_beneficiary_account">Beneficiary account</string>
+    <string name="row_transfer_amount">Transfer amount</string>
+    <string name="row_transfer_fee">Transfer fee</string>
+    <string name="row_total_debit">Total debit</string>
+    <string name="row_narration">Narration</string>
+    <string name="narration_none">—</string>
+    <string name="action_confirm_transfer">Confirm transfer</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="processing_transfer">Processing your transfer…</string>
+    <string name="processing_hint">Please keep the app open. Don\'t tap again.</string>
+
+    <!-- Result -->
+    <string name="result_success_title">Transfer successful</string>
+    <string name="result_success_message">%1$s was sent to %2$s.</string>
+    <string name="result_failed_title">Transfer failed</string>
+    <string name="result_failed_insufficient">Your balance can\'t cover this transfer and its fee. You have not been charged.</string>
+    <string name="result_failed_rejected">The transfer was declined and you have not been charged. You can try again.</string>
+    <string name="result_failed_not_processed">We have no record of this transfer, so no money was sent. You can try again.</string>
+    <string name="result_pending_title">Transfer pending</string>
+    <string name="result_pending_message">Your transfer is still being processed. Please don\'t send it again. Check the status in a moment.</string>
+    <string name="result_unknown_title">Status could not be confirmed</string>
+    <string name="result_unknown_message">We didn\'t get a response in time. A timeout doesn\'t necessarily mean the transfer failed, so it may still go through. Don\'t retry yet: check the status of this transfer first.</string>
+    <string name="result_checking">Checking transfer status…</string>
+    <string name="result_reference">Transaction reference</string>
+    <string name="action_done">Done</string>
+    <string name="action_try_again">Try again</string>
+    <string name="action_view_history">View transaction history</string>
+
+    <!-- History -->
+    <string name="hint_search">Search transactions</string>
+    <string name="filter_all">All</string>
+    <string name="filter_credit">Credit</string>
+    <string name="filter_debit">Debit</string>
+    <string name="state_loading">Loading transactions…</string>
+    <string name="state_empty_title">No transactions yet</string>
+    <string name="state_empty_message">Your recent transactions will appear here.</string>
+    <string name="state_no_results_title">No matching transactions</string>
+    <string name="state_no_results_message">Try a different search term or filter.</string>
+    <string name="state_error_title">Couldn\'t load transactions</string>
+    <string name="state_error_message">Something went wrong. Check your connection and try again.</string>
+    <string name="snackbar_refresh_failed">Couldn\'t refresh. Showing your last known transactions.</string>
+    <string name="transaction_row_description">%1$s, %2$s, %3$s, %4$s</string>
+
+    <!-- Details / shared labels -->
+    <string name="row_reference">Reference</string>
+    <string name="row_description">Description</string>
+    <string name="row_amount">Amount</string>
+    <string name="row_date">Date</string>
+    <string name="row_type">Type</string>
+    <string name="row_status">Status</string>
+    <string name="type_credit">Credit</string>
+    <string name="type_debit">Debit</string>
+    <string name="status_successful">Successful</string>
+    <string name="status_pending">Pending</string>
+    <string name="status_failed">Failed</string>
+    <string name="transaction_not_found">This transaction is no longer available.</string>
+
+    <!-- Content descriptions -->
+    <string name="cd_credit">Credit</string>
+    <string name="cd_debit">Debit</string>
+    <string name="cd_status_icon">Transfer status</string>
+</resources>

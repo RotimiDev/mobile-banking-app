@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/transferFormFragment">
+
+    <fragment
+        android:id="@+id/transferFormFragment"
+        android:name="com.akeem.mobilebanking.ui.transfer.TransferFormFragment"
+        android:label="@string/title_transfer">
+        <action
+            android:id="@+id/action_transferForm_to_confirmation"
+            app:destination="@id/confirmationFragment" />
+        <action
+            android:id="@+id/action_transferForm_to_result"
+            app:destination="@id/resultFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/confirmationFragment"
+        android:name="com.akeem.mobilebanking.ui.transfer.ConfirmationFragment"
+        android:label="@string/title_confirm_transfer">
+        <action
+            android:id="@+id/action_confirmation_to_result"
+            app:destination="@id/resultFragment"
+            app:popUpTo="@id/confirmationFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.akeem.mobilebanking.ui.transfer.TransferResultFragment"
+        android:label="@string/title_transfer_result" />
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.akeem.mobilebanking.ui.history.HistoryFragment"
+        android:label="@string/title_transactions">
+        <action
+            android:id="@+id/action_history_to_details"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.akeem.mobilebanking.ui.history.TransactionDetailsFragment"
+        android:label="@string/title_transaction_details">
+        <argument
+            android:name="transactionId"
+            app:argType="string" />
+    </fragment>
+</navigation>
