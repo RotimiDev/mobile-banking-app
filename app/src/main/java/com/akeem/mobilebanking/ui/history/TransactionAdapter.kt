@@ -48,18 +48,12 @@ class TransactionAdapter(
                 R.string.transaction_row_description,
                 transaction.title,
                 context.getString(transaction.type.labelRes()) + " " + transaction.formattedAmount(),
-                context.getString(transactionStatusLabel(transaction)),
+                context.getString(transaction.status.labelRes()),
                 transaction.date,
             )
             root.setOnClickListener { onClick(transaction) }
         }
 
-        private fun transactionStatusLabel(transaction: Transaction): Int =
-            when (transaction.status) {
-                com.akeem.mobilebanking.domain.model.TransactionStatus.SUCCESSFUL -> R.string.status_successful
-                com.akeem.mobilebanking.domain.model.TransactionStatus.PENDING -> R.string.status_pending
-                com.akeem.mobilebanking.domain.model.TransactionStatus.FAILED -> R.string.status_failed
-            }
     }
 
     private object DiffCallback : DiffUtil.ItemCallback<Transaction>() {
