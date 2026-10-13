@@ -2,7 +2,6 @@ package com.akeem.mobilebanking.ui.transfer
 
 import android.os.Bundle
 import android.view.View
-import android.widget.ArrayAdapter
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
@@ -34,6 +33,9 @@ class TransferFormFragment : Fragment(R.layout.fragment_transfer_form) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         _binding = FragmentTransferFormBinding.bind(view)
+        // A new view has no adapters yet, so forget what the previous view was given.
+        renderedAccountLabels = emptyList()
+        renderedBankNames = emptyList()
 
         // The ViewModel owns the form state: seed the views from it (inputs have saveEnabled=false),
         // then start listening so we never echo our own writes back.
@@ -83,7 +85,7 @@ class TransferFormFragment : Fragment(R.layout.fragment_transfer_form) {
         val accountLabels = state.accounts.map { it.displayName(context) }
         if (accountLabels != renderedAccountLabels) {
             renderedAccountLabels = accountLabels
-            debitAccountInput.setAdapter(ArrayAdapter(context, R.layout.item_dropdown, accountLabels))
+            debitAccountInput.setAdapter(DropdownAdapter(context, accountLabels))
         }
         val selectedAccount = state.selectedAccount
         val accountText = selectedAccount?.displayName(context).orEmpty()
@@ -97,7 +99,7 @@ class TransferFormFragment : Fragment(R.layout.fragment_transfer_form) {
         val bankNames = state.banks.map { it.name }
         if (bankNames != renderedBankNames) {
             renderedBankNames = bankNames
-            bankInput.setAdapter(ArrayAdapter(context, R.layout.item_dropdown, bankNames))
+            bankInput.setAdapter(DropdownAdapter(context, bankNames))
         }
         val bankText = state.selectedBank?.name.orEmpty()
         if (bankInput.text.toString() != bankText) bankInput.setText(bankText, false)
