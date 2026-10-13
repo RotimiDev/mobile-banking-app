@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <TextView
+        android:id="@+id/rowLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.42"
+        android:paddingEnd="@dimen/spacing_sm"
+        android:textAppearance="?attr/textAppearanceBodyMedium"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        tools:ignore="RtlSymmetry"
+        tools:text="Debit account" />
+
+    <TextView
+        android:id="@+id/rowValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.58"
+        android:gravity="end"
+        android:textAlignment="viewEnd"
+        android:textAppearance="?attr/textAppearanceBodyLarge"
+        android:textColor="?attr/colorOnSurface"
+        android:textStyle="bold"
+        tools:text="Savings Account •••• 4821" />
+</merge>
