@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
+import androidx.core.content.res.use
 import com.akeem.mobilebanking.R
 import com.akeem.mobilebanking.databinding.ViewDetailRowBinding
 
