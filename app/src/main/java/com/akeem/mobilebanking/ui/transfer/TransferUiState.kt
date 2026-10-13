@@ -4,18 +4,7 @@ import com.akeem.mobilebanking.domain.model.Account
 import com.akeem.mobilebanking.domain.model.Bank
 import com.akeem.mobilebanking.domain.model.ResolutionState
 import com.akeem.mobilebanking.domain.model.TransferDraft
-import com.akeem.mobilebanking.domain.model.TransferOutcome
 import com.akeem.mobilebanking.domain.transfer.ValidationResult
-
-sealed interface TransferProcessState {
-    data object Idle : TransferProcessState
-    data object Submitting : TransferProcessState
-    data object CheckingStatus : TransferProcessState
-    data class Finished(val outcome: TransferOutcome) : TransferProcessState
-}
-
-/** A transfer whose outcome is Pending/Unknown. It blocks new transfers until its status is settled. */
-data class UnresolvedTransfer(val draft: TransferDraft, val outcome: TransferOutcome)
 
 data class TransferUiState(
     val accounts: List<Account> = emptyList(),
@@ -37,9 +26,4 @@ data class TransferUiState(
     val selectedBank: Bank? get() = banks.firstOrNull { it.code == selectedBankCode }
     val isBusy: Boolean
         get() = process is TransferProcessState.Submitting || process is TransferProcessState.CheckingStatus
-}
-
-sealed interface TransferEvent {
-    data object NavigateToConfirmation : TransferEvent
-    data object PreviousTransferUnresolved : TransferEvent
 }

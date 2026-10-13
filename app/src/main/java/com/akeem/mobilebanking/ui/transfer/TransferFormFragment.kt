@@ -12,10 +12,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.akeem.mobilebanking.R
 import com.akeem.mobilebanking.databinding.FragmentTransferFormBinding
+import com.akeem.mobilebanking.domain.model.Account
 import com.akeem.mobilebanking.domain.model.ResolutionFailure
 import com.akeem.mobilebanking.domain.model.ResolutionState
 import com.akeem.mobilebanking.domain.money.MoneyFormatter
-import com.akeem.mobilebanking.ui.common.displayName
 import com.akeem.mobilebanking.ui.common.navigateSafely
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint

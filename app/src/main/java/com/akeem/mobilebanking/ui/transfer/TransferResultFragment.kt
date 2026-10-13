@@ -1,12 +1,15 @@
 package com.akeem.mobilebanking.ui.transfer
 
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.lifecycle.Lifecycle
@@ -14,9 +17,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
-import androidx.core.widget.ImageViewCompat
-import android.content.res.ColorStateList
-import androidx.core.content.ContextCompat
 import com.akeem.mobilebanking.R
 import com.akeem.mobilebanking.databinding.FragmentTransferResultBinding
 import com.akeem.mobilebanking.domain.model.FailureReason

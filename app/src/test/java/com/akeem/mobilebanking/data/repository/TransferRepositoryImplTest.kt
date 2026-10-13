@@ -1,23 +1,27 @@
-package com.akeem.mobilebanking.data
+package com.akeem.mobilebanking.data.repository
 
+import com.akeem.mobilebanking.data.demo.DemoSettings
+import com.akeem.mobilebanking.data.demo.DemoTransferResult
+import com.akeem.mobilebanking.data.source.BankDataSource
+import com.akeem.mobilebanking.domain.model.Bank
 import com.akeem.mobilebanking.domain.model.FailureReason
 import com.akeem.mobilebanking.domain.model.TransactionStatus
 import com.akeem.mobilebanking.domain.model.TransferOutcome
 import com.akeem.mobilebanking.domain.model.TransferRequest
-import java.time.Clock
-import java.time.Instant
-import java.time.ZoneOffset
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
+import java.time.Clock
+import java.time.Instant
+import java.time.ZoneOffset
 
-class InMemoryTransferRepositoryTest {
+class TransferRepositoryImplTest {
 
     private val clock = Clock.fixed(Instant.parse("2026-10-13T09:00:00Z"), ZoneOffset.UTC)
-    private val store = InMemoryBankingStore(clock)
-    private val simulation = SimulationSettings()
-    private val repository = InMemoryTransferRepository(store, simulation)
+    private val store = BankDataSource(clock)
+    private val demoSettings = DemoSettings()
+    private val repository = TransferRepositoryImpl(store, demoSettings)
 
     private fun request(reference: String = "REF1", amountKobo: Long = 2_500_000L) = TransferRequest(
         reference = reference,
@@ -56,7 +60,7 @@ class InMemoryTransferRepositoryTest {
     }
 
     @Test fun `failed transfers are recorded as failed and do not debit`() = runTest {
-        simulation.transfer = TransferSimulation.FAILED
+        demoSettings.transfer = DemoTransferResult.FAILED
         val outcome = repository.submit(request())
 
         assertEquals(TransferOutcome.Failed(FailureReason.REJECTED_BY_BANK), outcome)
@@ -65,7 +69,7 @@ class InMemoryTransferRepositoryTest {
     }
 
     @Test fun `pending settles to successful on a later status check, with a single debit`() = runTest {
-        simulation.transfer = TransferSimulation.PENDING
+        demoSettings.transfer = DemoTransferResult.PENDING
         assertEquals(TransferOutcome.Pending, repository.submit(request()))
         assertEquals(TransactionStatus.PENDING, store.transactions.value.single().status)
 
@@ -78,7 +82,7 @@ class InMemoryTransferRepositoryTest {
     }
 
     @Test fun `timeout returns unknown, and the status check reveals the transfer actually went through`() = runTest {
-        simulation.transfer = TransferSimulation.TIMEOUT
+        demoSettings.transfer = DemoTransferResult.TIMEOUT
         assertEquals(TransferOutcome.Unknown, repository.submit(request()))
         assertTrue("client does not know yet", store.transactions.value.isEmpty())
 

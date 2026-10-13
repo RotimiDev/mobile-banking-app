@@ -12,9 +12,6 @@ import com.akeem.mobilebanking.R
 import com.akeem.mobilebanking.databinding.FragmentTransactionDetailsBinding
 import com.akeem.mobilebanking.domain.model.Transaction
 import com.akeem.mobilebanking.domain.money.MoneyFormatter
-import com.akeem.mobilebanking.ui.common.bindStatusBadge
-import com.akeem.mobilebanking.ui.common.formattedAmount
-import com.akeem.mobilebanking.ui.common.labelRes
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

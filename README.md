@@ -16,13 +16,24 @@ Kotlin · XML layouts / Android Views · MVVM · StateFlow · Coroutines · Navi
 
 ## Architecture
 ```
-domain/        pure Kotlin, no Android: models, money (kobo), TransferValidator, FilterTransactionsUseCase, repository contracts
-data/          in-memory "bank": InMemoryBankingStore + repository implementations + SimulationSettings
-di/            Hilt bindings (swap these to go from simulated to real/Retrofit)
-ui/transfer    TransferViewModel (+ UiState), Form / Confirmation / Result fragments
-ui/history     HistoryViewModel, TransactionAdapter (ListAdapter+DiffUtil), History / Details fragments
-ui/common      DetailRowView (reusable row), formatting + navigation helpers
+domain/            pure Kotlin, no Android
+  model/           Account, Bank, Transaction, TransferDraft, TransferRequest, TransferOutcome, ...
+  money/           MoneyFormatter, MoneyParser (integer kobo)
+  transfer/        TransferValidator, ValidationResult, FieldError
+  transactions/    FilterTransactionsUseCase, TransactionFilter
+  repository/      interfaces only: AccountRepository, BankRepository, BeneficiaryRepository,
+                   TransferRepository, TransactionRepository, ReferenceGenerator
+data/
+  repository/      *RepositoryImpl (implement the domain interfaces)
+  source/          BankDataSource (simulated bank state), SampleData
+  demo/            DemoSettings, DemoTransferResult, DemoHistoryResult (demo switches)
+di/                Hilt: RepositoryModule (interface -> Impl), AppModule
+ui/
+  transfer/        TransferViewModel, TransferUiState, TransferEvent, Form/Confirmation/Result fragments
+  history/         HistoryViewModel, HistoryUiState, TransactionAdapter, History/Details fragments
+  common/          DetailRowView, Extensions, TransactionExt
 ```
+Naming follows common Android conventions: `XFragment`, `XViewModel`, `XUiState`, `XRepository` + `XRepositoryImpl`, `XUseCase`, `XDataSource`, `FakeX` in tests, `XTest`; one class per file.
 Single activity, one nav graph. Bottom navigation: **Transfer** and **History**.
 
 ### Major design decisions
@@ -60,7 +71,7 @@ Balances: Savings ₦150,000.00 · Current ₦2,350,500.75 · Salary ₦8,420.50
 | Insufficient balance | `TransferValidatorTest` (exact balance, 1 kobo short, fee counted) |
 | Fee and total debit | `TransferValidatorTest`, `MoneyTest` |
 | Duplicate-submission prevention | `TransferViewModelTest` (`rapid repeated confirm taps…`) |
-| Successful / failed / pending (+ unknown) | `TransferViewModelTest`, `InMemoryTransferRepositoryTest` |
+| Successful / failed / pending (+ unknown) | `TransferViewModelTest`, `TransferRepositoryImplTest` |
 | Filtering by type + search | `FilterTransactionsTest`, `HistoryViewModelTest` |
 | Extras | resolution race (cancellation honoured *and* ignored), bank/number change clears name, status check uses original reference, backend idempotent replay, overflow guards |
 

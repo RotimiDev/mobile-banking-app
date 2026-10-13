@@ -6,11 +6,11 @@ import androidx.lifecycle.viewModelScope
 import com.akeem.mobilebanking.domain.model.Transaction
 import com.akeem.mobilebanking.domain.repository.TransactionRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
+import javax.inject.Inject
 
 @HiltViewModel
 class TransactionDetailsViewModel @Inject constructor(

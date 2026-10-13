@@ -1,4 +1,4 @@
-package com.akeem.mobilebanking.data
+package com.akeem.mobilebanking.data.source
 
 import com.akeem.mobilebanking.domain.model.Account
 import com.akeem.mobilebanking.domain.model.Bank
@@ -9,7 +9,7 @@ import com.akeem.mobilebanking.domain.model.TransactionStatus.SUCCESSFUL
 import com.akeem.mobilebanking.domain.model.TransactionType.CREDIT
 import com.akeem.mobilebanking.domain.model.TransactionType.DEBIT
 
-internal object SeedData {
+internal object SampleData {
 
     val accounts = listOf(
         Account("acc_savings", "Savings Account", "4821", balanceKobo = 15_000_000L),      // ₦150,000.00

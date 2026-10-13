@@ -9,9 +9,9 @@ import androidx.core.view.isVisible
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
-import com.akeem.mobilebanking.data.HistorySimulation
-import com.akeem.mobilebanking.data.SimulationSettings
-import com.akeem.mobilebanking.data.TransferSimulation
+import com.akeem.mobilebanking.data.demo.DemoHistoryResult
+import com.akeem.mobilebanking.data.demo.DemoSettings
+import com.akeem.mobilebanking.data.demo.DemoTransferResult
 import com.akeem.mobilebanking.databinding.ActivityMainBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,7 +21,7 @@ import kotlin.math.max
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    @Inject lateinit var simulationSettings: SimulationSettings
+    @Inject lateinit var demoSettings: DemoSettings
 
     private lateinit var binding: ActivityMainBinding
 
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showTransferSimulationDialog() {
-        val options = TransferSimulation.entries
+        val options = DemoTransferResult.entries
         val labels = arrayOf(
             getString(R.string.sim_transfer_success),
             getString(R.string.sim_transfer_failed),
@@ -70,8 +70,8 @@ class MainActivity : AppCompatActivity() {
         )
         MaterialAlertDialogBuilder(this)
             .setTitle(R.string.sim_transfer_title)
-            .setSingleChoiceItems(labels, options.indexOf(simulationSettings.transfer)) { dialog, which ->
-                simulationSettings.transfer = options[which]
+            .setSingleChoiceItems(labels, options.indexOf(demoSettings.transfer)) { dialog, which ->
+                demoSettings.transfer = options[which]
                 dialog.dismiss()
             }
             .setNegativeButton(R.string.action_close, null)
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showHistorySimulationDialog() {
-        val options = HistorySimulation.entries
+        val options = DemoHistoryResult.entries
         val labels = arrayOf(
             getString(R.string.sim_history_normal),
             getString(R.string.sim_history_empty),
@@ -87,8 +87,8 @@ class MainActivity : AppCompatActivity() {
         )
         MaterialAlertDialogBuilder(this)
             .setTitle(R.string.sim_history_title)
-            .setSingleChoiceItems(labels, options.indexOf(simulationSettings.history)) { dialog, which ->
-                simulationSettings.history = options[which]
+            .setSingleChoiceItems(labels, options.indexOf(demoSettings.history)) { dialog, which ->
+                demoSettings.history = options[which]
                 dialog.dismiss()
             }
             .setNegativeButton(R.string.action_close, null)

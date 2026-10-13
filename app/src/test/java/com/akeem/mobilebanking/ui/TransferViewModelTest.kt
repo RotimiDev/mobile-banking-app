@@ -1,5 +1,6 @@
 package com.akeem.mobilebanking.ui
 
+import com.akeem.mobilebanking.domain.model.Account
 import com.akeem.mobilebanking.domain.model.FailureReason
 import com.akeem.mobilebanking.domain.model.ResolutionFailure
 import com.akeem.mobilebanking.domain.model.ResolutionState
@@ -11,12 +12,12 @@ import com.akeem.mobilebanking.testutil.ACCESS
 import com.akeem.mobilebanking.testutil.FakeAccountRepository
 import com.akeem.mobilebanking.testutil.FakeBankRepository
 import com.akeem.mobilebanking.testutil.FakeBeneficiaryRepository
+import com.akeem.mobilebanking.testutil.FakeReferenceGenerator
 import com.akeem.mobilebanking.testutil.FakeTransferRepository
 import com.akeem.mobilebanking.testutil.GTB
 import com.akeem.mobilebanking.testutil.MainDispatcherRule
 import com.akeem.mobilebanking.testutil.SALARY
 import com.akeem.mobilebanking.testutil.SAVINGS
-import com.akeem.mobilebanking.testutil.SequentialReferenceGenerator
 import com.akeem.mobilebanking.ui.transfer.TransferEvent
 import com.akeem.mobilebanking.ui.transfer.TransferProcessState
 import com.akeem.mobilebanking.ui.transfer.TransferViewModel
@@ -46,7 +47,7 @@ class TransferViewModelTest {
 
     private fun TestScope.newViewModel(): TransferViewModel {
         val vm = TransferViewModel(
-            accounts, FakeBankRepository(), beneficiaries, transfers, TransferValidator(), SequentialReferenceGenerator(),
+            accounts, FakeBankRepository(), beneficiaries, transfers, TransferValidator(), FakeReferenceGenerator(),
         )
         advanceUntilIdle() // let accounts + banks load
         return vm

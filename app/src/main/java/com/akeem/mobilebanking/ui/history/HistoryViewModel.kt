@@ -6,7 +6,6 @@ import com.akeem.mobilebanking.domain.repository.TransactionRepository
 import com.akeem.mobilebanking.domain.transactions.FilterTransactionsUseCase
 import com.akeem.mobilebanking.domain.transactions.TransactionFilter
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -16,6 +15,7 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
 class HistoryViewModel @Inject constructor(

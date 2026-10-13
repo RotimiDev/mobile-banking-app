@@ -17,7 +17,6 @@ import com.akeem.mobilebanking.domain.repository.TransferRepository
 import com.akeem.mobilebanking.domain.transfer.TransferFormInput
 import com.akeem.mobilebanking.domain.transfer.TransferValidator
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.Channel
@@ -27,6 +26,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  * Shared by the form, confirmation and result screens (scoped to the navigation graph), which is

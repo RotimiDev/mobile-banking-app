@@ -1,19 +1,19 @@
-package com.akeem.mobilebanking.data
+package com.akeem.mobilebanking.data.source
 
 import com.akeem.mobilebanking.domain.model.Account
 import com.akeem.mobilebanking.domain.model.Transaction
 import com.akeem.mobilebanking.domain.model.TransactionStatus
 import com.akeem.mobilebanking.domain.model.TransactionType
 import com.akeem.mobilebanking.domain.model.TransferRequest
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import java.time.Clock
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 import javax.inject.Inject
 import javax.inject.Singleton
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 
 /**
  * The simulated "bank": one shared in-memory source of truth for balances and transactions.
@@ -21,9 +21,9 @@ import kotlinx.coroutines.flow.asStateFlow
  * lets a completed transfer show up in the history immediately without restarting the app.
  */
 @Singleton
-class InMemoryBankingStore @Inject constructor(private val clock: Clock) {
+class BankDataSource @Inject constructor(private val clock: Clock) {
 
-    private val _accounts = MutableStateFlow(SeedData.accounts)
+    private val _accounts = MutableStateFlow(SampleData.accounts)
     val accounts: StateFlow<List<Account>> = _accounts.asStateFlow()
 
     private val _transactions = MutableStateFlow<List<Transaction>>(emptyList())

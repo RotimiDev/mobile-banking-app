@@ -1,6 +1,5 @@
 package com.akeem.mobilebanking.ui.common
 
-import android.content.Context
 import android.content.res.ColorStateList
 import android.widget.TextView
 import androidx.annotation.ColorRes

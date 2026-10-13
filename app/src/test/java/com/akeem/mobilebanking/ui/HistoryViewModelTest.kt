@@ -10,7 +10,6 @@ import com.akeem.mobilebanking.testutil.MainDispatcherRule
 import com.akeem.mobilebanking.ui.history.HistoryContent
 import com.akeem.mobilebanking.ui.history.HistoryMessage
 import com.akeem.mobilebanking.ui.history.HistoryViewModel
-import java.io.IOException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestScope
@@ -21,6 +20,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
+import java.io.IOException
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class HistoryViewModelTest {

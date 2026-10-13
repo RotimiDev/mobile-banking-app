@@ -1,8 +1,8 @@
 package com.akeem.mobilebanking.ui.history
 
+import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.content.res.ColorStateList
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.DiffUtil
@@ -11,12 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.akeem.mobilebanking.R
 import com.akeem.mobilebanking.databinding.ItemTransactionBinding
 import com.akeem.mobilebanking.domain.model.Transaction
-import com.akeem.mobilebanking.domain.model.TransactionType
-import com.akeem.mobilebanking.ui.common.bindStatusBadge
-import com.akeem.mobilebanking.ui.common.colorRes
-import com.akeem.mobilebanking.ui.common.formattedAmount
-import com.akeem.mobilebanking.ui.common.iconRes
-import com.akeem.mobilebanking.ui.common.labelRes
 
 class TransactionAdapter(
     private val onClick: (Transaction) -> Unit,
