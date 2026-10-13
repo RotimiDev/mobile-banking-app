@@ -138,7 +138,7 @@ class TransferFormFragment : Fragment(R.layout.fragment_transfer_form) {
         beneficiaryLabel.isVisible = resolution is ResolutionState.Resolved
 
         val errorColor = com.google.android.material.color.MaterialColors
-            .getColor(beneficiaryText, androidx.appcompat.R.attr.colorError)
+            .getColor(beneficiaryText, com.google.android.material.R.attr.colorError)
         val normalColor = com.google.android.material.color.MaterialColors
             .getColor(beneficiaryText, com.google.android.material.R.attr.colorOnSurface)
 
