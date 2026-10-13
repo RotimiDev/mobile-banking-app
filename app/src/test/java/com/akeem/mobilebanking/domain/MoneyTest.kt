@@ -49,7 +49,7 @@ class MoneyTest {
     @Test fun `guards against overflow`() {
         assertEquals(AmountParseResult.TooLarge, MoneyParser.parse("99999999999999999999"))
         // Fits in a Long as naira, but x100 overflows.
-        assertEquals(AmountParseResult.TooLarge, MoneyParser.parse("92233720368547758"))
+        assertEquals(AmountParseResult.TooLarge, MoneyParser.parse("92233720368547759"))
     }
 
     @Test fun `leading zeros are fine and zero parses as zero`() {

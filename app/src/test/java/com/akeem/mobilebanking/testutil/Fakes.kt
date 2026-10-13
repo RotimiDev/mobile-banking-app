@@ -15,6 +15,8 @@ import com.akeem.mobilebanking.domain.repository.TransferRepository
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.NonCancellable
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -53,10 +55,13 @@ class FakeBeneficiaryRepository : BeneficiaryRepository {
 
     val calls = mutableListOf<Call>()
 
+    /** Simulates a data source that does NOT honour cancellation, to prove the ViewModel's own guards. */
+    var ignoreCancellation = false
+
     override suspend fun resolve(bankCode: String, accountNumber: String): ResolveResult {
         val call = Call(bankCode, accountNumber)
         calls += call
-        return call.response.await()
+        return if (ignoreCancellation) withContext(NonCancellable) { call.response.await() } else call.response.await()
     }
 }
 
