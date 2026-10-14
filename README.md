@@ -21,17 +21,16 @@ Bottom navigation: **Transfer** and **History**.
 
 ## Screenshots
 
-<img width="1080" height="2400" alt="Screenshot_20261014_022318" src="https://github.com/user-attachments/assets/507028e2-1c2b-447c-aecf-952f7302cf4c" />
-<img width="1080" height="2400" alt="Screenshot_20261014_022155" src="https://github.com/user-attachments/assets/c2233ac8-7e44-4e3f-babc-0239d780f137" />
-<img width="1080" height="2400" alt="Screenshot_20261014_022112" src="https://github.com/user-attachments/assets/48b154ae-bed7-4d8d-b592-5f25baf62cd1" />
-<img width="1080" height="2400" alt="Screenshot_20261014_021952" src="https://github.com/user-attachments/assets/40ba5756-70ba-40ab-bc29-4e51e7d6c783" />
-<img width="1080" height="2400" alt="Screenshot_20261014_021927" src="https://github.com/user-attachments/assets/4aa6dabe-aea6-4a49-b0fe-e3682f88102a" />
-<img width="1080" height="2400" alt="Screenshot_20261014_021856" src="https://github.com/user-attachments/assets/59cb6438-5360-439c-abbc-09c23d9f1061" />
-<img width="1080" height="2400" alt="Screenshot_20261014_021837" src="https://github.com/user-attachments/assets/3c81ecd0-c1f2-47bc-b53c-d6062ead2d67" />
-<img width="1080" height="2400" alt="Screenshot_20261014_021822" src="https://github.com/user-attachments/assets/4cea6aff-cb75-4613-9b34-7938449e048b" />
+<img width="700" height="350" alt="Screenshot_20261014_022318" src="https://github.com/user-attachments/assets/507028e2-1c2b-447c-aecf-952f7302cf4c" />
+<img width="700" height="350" alt="Screenshot_20261014_022155" src="https://github.com/user-attachments/assets/c2233ac8-7e44-4e3f-babc-0239d780f137" />
+<img width="700" height="350" alt="Screenshot_20261014_022112" src="https://github.com/user-attachments/assets/48b154ae-bed7-4d8d-b592-5f25baf62cd1" />
+<img width="700" height="350" alt="Screenshot_20261014_021952" src="https://github.com/user-attachments/assets/40ba5756-70ba-40ab-bc29-4e51e7d6c783" />
+<img width="700" height="350" alt="Screenshot_20261014_021927" src="https://github.com/user-attachments/assets/4aa6dabe-aea6-4a49-b0fe-e3682f88102a" />
+<img width="700" height="350" alt="Screenshot_20261014_021856" src="https://github.com/user-attachments/assets/59cb6438-5360-439c-abbc-09c23d9f1061" />
+<img width="700" height="350" alt="Screenshot_20261014_021837" src="https://github.com/user-attachments/assets/3c81ecd0-c1f2-47bc-b53c-d6062ead2d67" />
+<img width="700" height="350" alt="Screenshot_20261014_021822" src="https://github.com/user-attachments/assets/4cea6aff-cb75-4613-9b34-7938449e048b" />
 
-<img width="1080" height="2400" alt="Screenshot_20261014_021455" src="https://github.com/user-attachments/assets/ef6b4f7d-76ea-45d0-b814-72e7b435fd8b" />
-
+<img width="700" height="350" alt="Screenshot_20261014_021455" src="https://github.com/user-attachments/assets/ef6b4f7d-76ea-45d0-b814-72e7b435fd8b" />
 
 ### Major design decisions
 - **StateFlow everywhere** (applied consistently, no LiveData). Fragments collect with `repeatOnLifecycle(STARTED)` inside `viewLifecycleOwner`; ViewModels use `viewModelScope`; no View/Fragment references leak into ViewModels.
