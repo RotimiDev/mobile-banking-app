@@ -15,26 +15,9 @@ Kotlin · XML layouts / Android Views · MVVM · StateFlow · Coroutines · Navi
 (If `gradlew` is missing, open the project once in Android Studio, or run `gradle wrapper`.)
 
 ## Architecture
-```
-domain/            pure Kotlin, no Android
-  model/           Account, Bank, Transaction, TransferDraft, TransferRequest, TransferOutcome, ...
-  money/           MoneyFormatter, MoneyParser (integer kobo)
-  transfer/        TransferValidator, ValidationResult, FieldError
-  transactions/    FilterTransactionsUseCase, TransactionFilter
-  repository/      interfaces only: AccountRepository, BankRepository, BeneficiaryRepository,
-                   TransferRepository, TransactionRepository, ReferenceGenerator
-data/
-  repository/      *RepositoryImpl (implement the domain interfaces)
-  source/          BankDataSource (simulated bank state), SampleData
-  demo/            DemoSettings, DemoTransferResult, DemoHistoryResult (demo switches)
-di/                Hilt: RepositoryModule (interface -> Impl), AppModule
-ui/
-  transfer/        TransferViewModel, TransferUiState, TransferEvent, Form/Confirmation/Result fragments
-  history/         HistoryViewModel, HistoryUiState, TransactionAdapter, History/Details fragments
-  common/          DetailRowView, Extensions, TransactionExt
-```
-Naming follows common Android conventions: `XFragment`, `XViewModel`, `XUiState`, `XRepository` + `XRepositoryImpl`, `XUseCase`, `XDataSource`, `FakeX` in tests, `XTest`; one class per file.
-Single activity, one nav graph. Bottom navigation: **Transfer** and **History**.
+MVVM with Clean Architecture.
+Single activity, one nav graph. 
+Bottom navigation: **Transfer** and **History**.
 
 ### Major design decisions
 - **StateFlow everywhere** (applied consistently, no LiveData). Fragments collect with `repeatOnLifecycle(STARTED)` inside `viewLifecycleOwner`; ViewModels use `viewModelScope`; no View/Fragment references leak into ViewModels.
@@ -50,8 +33,8 @@ Single activity, one nav graph. Bottom navigation: **Transfer** and **History**.
 ## Demonstrating the states
 Use the **⋮ menu in the toolbar**:
 - **Simulate transfer outcome** → Successful / Failed / Pending / Timeout (unknown). Applies to the *next* transfer.
-  - *Pending*: tap **Check status** once → still pending; again → successful.
-  - *Timeout*: result says status could not be confirmed; **Check status** reveals the backend did process it (history updates at that point).
+    - *Pending*: tap **Check status** once → still pending; again → successful.
+    - *Timeout*: result says status could not be confirmed; **Check status** reveals the backend did process it (history updates at that point).
 - **Simulate history data** → Normal / Empty / Service error. Pull down on History to reload (or **Retry** on the error state).
 
 Account-resolution test numbers (any bank):
@@ -83,4 +66,3 @@ Balances: Savings ₦150,000.00 · Current ₦2,350,500.75 · Salary ₦8,420.50
 - Pending transfers are treated as funds on hold (balance debited when accepted). A timed-out transfer is only recorded in history once its status is checked.
 - If the process is killed, an unresolved transfer is forgotten (a production app would persist it).
 - The UI uses the light Material 3 theme only.
-- Screenshots are listed in `docs/screenshots/README.md`.

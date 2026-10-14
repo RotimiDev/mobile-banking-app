@@ -6,15 +6,15 @@ plugins {
 }
 
 android {
-    namespace = "com.akeem.mobilebanking"
+    namespace = "com.example.mobilebanking"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.akeem.mobilebanking"
+        applicationId = "com.example.mobilebanking"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.1"
     }
 
     buildTypes {

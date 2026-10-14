@@ -63,27 +63,27 @@
                 android:orientation="vertical"
                 android:padding="@dimen/spacing_md">
 
-                <com.akeem.mobilebanking.ui.common.DetailRowView
+                <com.example.mobilebanking.ui.common.DetailRowView
                     android:id="@+id/rowReference"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:rowLabel="@string/result_reference" />
 
-                <com.akeem.mobilebanking.ui.common.DetailRowView
+                <com.example.mobilebanking.ui.common.DetailRowView
                     android:id="@+id/rowBeneficiary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_md"
                     app:rowLabel="@string/row_beneficiary_name" />
 
-                <com.akeem.mobilebanking.ui.common.DetailRowView
+                <com.example.mobilebanking.ui.common.DetailRowView
                     android:id="@+id/rowAmount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_md"
                     app:rowLabel="@string/row_transfer_amount" />
 
-                <com.akeem.mobilebanking.ui.common.DetailRowView
+                <com.example.mobilebanking.ui.common.DetailRowView
                     android:id="@+id/rowTotal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/transferFormFragment"
-        android:name="com.akeem.mobilebanking.ui.transfer.TransferFormFragment"
+        android:name="com.example.mobilebanking.ui.transfer.TransferFormFragment"
         android:label="@string/title_transfer">
         <action
             android:id="@+id/action_transferForm_to_confirmation"
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/confirmationFragment"
-        android:name="com.akeem.mobilebanking.ui.transfer.ConfirmationFragment"
+        android:name="com.example.mobilebanking.ui.transfer.ConfirmationFragment"
         android:label="@string/title_confirm_transfer">
         <action
             android:id="@+id/action_confirmation_to_result"
@@ -29,12 +29,12 @@
 
     <fragment
         android:id="@+id/resultFragment"
-        android:name="com.akeem.mobilebanking.ui.transfer.TransferResultFragment"
+        android:name="com.example.mobilebanking.ui.transfer.TransferResultFragment"
         android:label="@string/title_transfer_result" />
 
     <fragment
         android:id="@+id/historyFragment"
-        android:name="com.akeem.mobilebanking.ui.history.HistoryFragment"
+        android:name="com.example.mobilebanking.ui.history.HistoryFragment"
         android:label="@string/title_transactions">
         <action
             android:id="@+id/action_history_to_details"
@@ -43,7 +43,7 @@
 
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.akeem.mobilebanking.ui.history.TransactionDetailsFragment"
+        android:name="com.example.mobilebanking.ui.history.TransactionDetailsFragment"
         android:label="@string/title_transaction_details">
         <argument
             android:name="transactionId"

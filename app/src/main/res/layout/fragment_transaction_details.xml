@@ -65,41 +65,41 @@
                     android:orientation="vertical"
                     android:padding="@dimen/spacing_md">
 
-                    <com.akeem.mobilebanking.ui.common.DetailRowView
+                    <com.example.mobilebanking.ui.common.DetailRowView
                         android:id="@+id/rowReference"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:rowLabel="@string/row_reference" />
 
-                    <com.akeem.mobilebanking.ui.common.DetailRowView
+                    <com.example.mobilebanking.ui.common.DetailRowView
                         android:id="@+id/rowDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_md"
                         app:rowLabel="@string/row_description" />
 
-                    <com.akeem.mobilebanking.ui.common.DetailRowView
+                    <com.example.mobilebanking.ui.common.DetailRowView
                         android:id="@+id/rowAmount"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_md"
                         app:rowLabel="@string/row_amount" />
 
-                    <com.akeem.mobilebanking.ui.common.DetailRowView
+                    <com.example.mobilebanking.ui.common.DetailRowView
                         android:id="@+id/rowDate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_md"
                         app:rowLabel="@string/row_date" />
 
-                    <com.akeem.mobilebanking.ui.common.DetailRowView
+                    <com.example.mobilebanking.ui.common.DetailRowView
                         android:id="@+id/rowType"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_md"
                         app:rowLabel="@string/row_type" />
 
-                    <com.akeem.mobilebanking.ui.common.DetailRowView
+                    <com.example.mobilebanking.ui.common.DetailRowView
                         android:id="@+id/rowStatus"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

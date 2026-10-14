@@ -173,7 +173,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="?attr/textAppearanceTitleMedium"
-                        tools:text="JOHN CHUKWUEMEKA DOE" />
+                        tools:text="JOHN CHUKWUEMEKA" />
                 </LinearLayout>
 
                 <com.google.android.material.button.MaterialButton
@@ -241,20 +241,20 @@
                 android:orientation="vertical"
                 android:padding="@dimen/spacing_md">
 
-                <com.akeem.mobilebanking.ui.common.DetailRowView
+                <com.example.mobilebanking.ui.common.DetailRowView
                     android:id="@+id/summaryAmount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:rowLabel="@string/summary_transfer_amount" />
 
-                <com.akeem.mobilebanking.ui.common.DetailRowView
+                <com.example.mobilebanking.ui.common.DetailRowView
                     android:id="@+id/summaryFee"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_sm"
                     app:rowLabel="@string/summary_fee" />
 
-                <com.akeem.mobilebanking.ui.common.DetailRowView
+                <com.example.mobilebanking.ui.common.DetailRowView
                     android:id="@+id/summaryTotal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
