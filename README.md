@@ -37,6 +37,10 @@ Bottom navigation: **Transfer** and **History**.
   <img width="240" alt="Screenshot_20261014_021455" src="https://github.com/user-attachments/assets/ef6b4f7d-76ea-45d0-b814-72e7b435fd8b" />
 </p>
 
+### Video recording
+
+https://github.com/user-attachments/assets/64883822-f830-42fd-8afc-17950b54e91a
+
 ### Major design decisions
 - **StateFlow everywhere** (applied consistently, no LiveData). Fragments collect with `repeatOnLifecycle(STARTED)` inside `viewLifecycleOwner`; ViewModels use `viewModelScope`; no View/Fragment references leak into ViewModels.
 - **Money is `Long` kobo** end to end. `MoneyParser` turns typed text into exact kobo using `BigDecimal`-free integer maths with `multiplyExact/addExact` overflow guards; `MoneyFormatter` uses `BigDecimal.valueOf(kobo, 2)`. `Double` is never used. Amounts above ₦1 trillion are rejected.
